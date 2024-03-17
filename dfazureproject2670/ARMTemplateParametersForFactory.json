@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfazureproject2670"
+		},
+		"LS_SQL_SOURCE_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlserverazureproject2670.database.windows.net;Initial Catalog=sqldbazureproject2670;User ID=shubhamkapadnis"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_url": {
+			"value": "https://stsinkadls2670.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_tenant": {
+			"value": "c1732af7-13b0-4802-b087-050fd6569418"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_servicePrincipalId": {
+			"value": "ff3bf427-0929-4bf6-987b-cc71a5c4a3fc"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_url": {
+			"value": "https://stsourceadls2670.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_tenant": {
+			"value": "c1732af7-13b0-4802-b087-050fd6569418"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_servicePrincipalId": {
+			"value": "ff3bf427-0929-4bf6-987b-cc71a5c4a3fc"
+		},
+		"LS_KEYVAULT_properties_typeProperties_baseUrl": {
+			"value": "https://kvazureproject2670.vault.azure.net/"
+		},
+		"LS_REST_API_properties_typeProperties_url": {
+			"value": "https://airlabs.co/api/v9/airlines"
+		}
+	}
+}

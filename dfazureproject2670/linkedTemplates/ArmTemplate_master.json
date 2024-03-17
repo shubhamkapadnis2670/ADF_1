@@ -1,0 +1,106 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfazureproject2670"
+		},
+		"LS_SQL_SOURCE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL_SOURCE'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlserverazureproject2670.database.windows.net;Initial Catalog=sqldbazureproject2670;User ID=shubhamkapadnis"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stsinkadls2670.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c1732af7-13b0-4802-b087-050fd6569418"
+		},
+		"LS_ADLS_SINK_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "ff3bf427-0929-4bf6-987b-cc71a5c4a3fc"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stsourceadls2670.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c1732af7-13b0-4802-b087-050fd6569418"
+		},
+		"LS_ADLS_SOURCE_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "ff3bf427-0929-4bf6-987b-cc71a5c4a3fc"
+		},
+		"LS_KEYVAULT_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvazureproject2670.vault.azure.net/"
+		},
+		"LS_REST_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://airlabs.co/api/v9/airlines"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dfazureproject2670_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SQL_SOURCE_connectionString": {
+						"value": "[parameters('LS_SQL_SOURCE_connectionString')]"
+					},
+					"LS_KEYVAULT_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KEYVAULT_properties_typeProperties_baseUrl')]"
+					},
+					"LS_REST_API_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_API_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_SINK_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SINK_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_SINK_properties_typeProperties_tenant": {
+						"value": "[parameters('LS_ADLS_SINK_properties_typeProperties_tenant')]"
+					},
+					"LS_ADLS_SINK_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('LS_ADLS_SINK_properties_typeProperties_servicePrincipalId')]"
+					},
+					"LS_ADLS_SOURCE_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SOURCE_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_SOURCE_properties_typeProperties_tenant": {
+						"value": "[parameters('LS_ADLS_SOURCE_properties_typeProperties_tenant')]"
+					},
+					"LS_ADLS_SOURCE_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('LS_ADLS_SOURCE_properties_typeProperties_servicePrincipalId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
