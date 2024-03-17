@@ -1,0 +1,11 @@
+{
+	"name": "LS_KEYVAULT",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kvazureproject2670.vault.azure.net/"
+		}
+	}
+}

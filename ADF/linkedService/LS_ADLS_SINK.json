@@ -1,0 +1,22 @@
+{
+	"name": "LS_ADLS_SINK",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stsinkadls2670.dfs.core.windows.net/",
+			"tenant": "c1732af7-13b0-4802-b087-050fd6569418",
+			"servicePrincipalId": "ff3bf427-0929-4bf6-987b-cc71a5c4a3fc",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"servicePrincipalCredential": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_KEYVAULT",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "app-secret-key"
+			}
+		}
+	}
+}
